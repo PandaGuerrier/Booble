@@ -10,17 +10,15 @@ export default class StoreUserValidator {
       rules.unique({ table: 'users', column: 'email ' }),
     ]),
     password: schema.string(),
-    repeat_password: schema.string({}, [
-      rules.confirmed('password')
-    ]),
-    username: schema.string()
+    repeat_password: schema.string({}, [rules.confirmed('password')]),
+    username: schema.string(),
   })
 
   public messages: CustomMessages = {
-    'email.email': 'L\'email doit être valide',
-    'email.unique': 'L\'email est déjà utilisé',
+    'email.email': "L'email doit être valide",
+    'email.unique': "L'email est déjà utilisé",
     'repeatPassword.confirmed': 'Les mots de passe ne sont pas identiques',
-    'username.unique': 'Le nom d\'utilisateur est déjà utilisé',
+    'username.unique': "Le nom d'utilisateur est déjà utilisé",
     'password.confirmed': 'Les mots de passe ne sont pas identiques',
     'required': 'Ce champs est requis !',
   }

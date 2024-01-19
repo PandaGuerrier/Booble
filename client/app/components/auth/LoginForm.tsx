@@ -19,12 +19,11 @@ export default function LoginForm({ user, setUser }) {
       rememberMe: rememberMe
     })
 
-    if (response.data.status != 200) {
+    if (response.status != 200) {
       setError('Adresse email ou mot de passe inconnue.')
     } else {
-      console.log(response.data)
       setUser({
-        user: response.data.user,
+        user: response.user,
         isConnected: true,
         error: null
       })

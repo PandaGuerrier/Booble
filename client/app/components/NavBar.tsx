@@ -10,26 +10,9 @@ import {
   NavbarMenu, NavbarMenuItem, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, Dropdown
 } from '@nextui-org/react'
 import api from '@/services/api'
-import LoginModal from '@/app/components/auth/AuthModal'
 import AuthModal from '@/app/components/auth/AuthModal'
-import ThemeComponent from '@/app/components/ThemeComponent'
 // @ts-ignore
-export default function NavBar({ user, setUser, theme, setTheme }) {
-  const links = [
-    {
-      name: "Accueil",
-      link: "/",
-    },
-    {
-      name: "Créations",
-      link: "#creations"
-    },
-    {
-      name: "Contact",
-      link: "#contact"
-    }
-  ]
-
+export default function NavBar({ user, setUser }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [linkEnable, setLinkEnabled] = React.useState(0)
 
@@ -41,26 +24,11 @@ export default function NavBar({ user, setUser, theme, setTheme }) {
   return (
       <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="fixed dark:bg-slate-900">
         <NavbarContent>
-          <NavbarMenuToggle
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              className="sm:hidden"
-          />
           <NavbarBrand>
-            <p className="font-bold text-inherit">RAVENS</p>
+            <p className="font-bold text-inherit">BOOBLE</p>
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          {
-           links.map((item, index) => (
-               <NavbarItem isActive={linkEnable === index} key={item.name}>
-                 <Link color={linkEnable === index ? 'primary' : 'foreground'} href={item.link} aria-current="page" onClick={() => setLinkEnabled(index)}>
-                   {item.name}
-                 </Link>
-               </NavbarItem>
-           ))
-          }
-        </NavbarContent>
         <NavbarContent justify="end">
           {user.isConnected ?
           <>
@@ -91,26 +59,7 @@ export default function NavBar({ user, setUser, theme, setTheme }) {
             <AuthModal user={user} setUser={setUser} selectedStr="login" />
           </>
           }
-          <ThemeComponent setTheme={setTheme} theme={theme}  />
-
         </NavbarContent>
-        <NavbarMenu>
-          {links.map((item, index) => (
-              <NavbarMenuItem key={`${item.name}-${index}`}>
-                <Link
-                    color={
-                      linkEnable === index ? 'primary' : 'foreground'
-                    }
-                    className="w-full"
-                    href={item.link}
-                    size="lg"
-                    onClick={() => setLinkEnabled(index)}
-                >
-                  {item.name}
-                </Link>
-              </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
       </Navbar>
   );
 }

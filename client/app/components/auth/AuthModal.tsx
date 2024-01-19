@@ -5,9 +5,15 @@ import LoginForm from './LoginForm'
 import RegisterForm from '@/app/components/auth/RegisterForm'
 
 // @ts-ignore
-export default function AuthModal({user, setUser, selectedStr}) {
+export default function AuthModal({user, setUser, selectedStr, autoOpen = false}) {
   const [selected, setSelected] = React.useState(selectedStr)
   const {isOpen, onOpen, onOpenChange, onClose} = useDisclosure()
+
+  React.useEffect(() => {
+    if (autoOpen) {
+      onOpen()
+    }
+  }, [])
 
   return (
       <>

@@ -6,7 +6,11 @@ import User from 'App/Models/User'
 export default class AuthController {
   public async register({ request, response }: HttpContextContract) {
     const payload = await request.validate(StoreUserValidator)
-    const user = await User.create(payload)
+    const user = await User.create({
+      email: payload.email,
+      password: payload.password,
+      username: payload.username,
+    })
 
     return response.created({
       message: 'User created successfully',
@@ -24,9 +28,9 @@ export default class AuthController {
         user: user
       })
     } catch (e) {
-      return response.ok({
-        status: 400,
-        message: "Utilisateur pas trouvé !"
+      return response.unauthorized({
+        status: 401,
+        message: 'Invalid credentials'
       })
     }
 

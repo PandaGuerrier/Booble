@@ -29,4 +29,9 @@ Route.group(() => {
   Route.post('register', 'AuthController.register')
   Route.post('login', 'AuthController.login')
   Route.delete('logout', 'AuthController.logout')
+  Route.put('update', 'UsersController.update').middleware(['auth'])
 }).prefix('auth/')
+
+Route.group(() => {
+  Route.post('search/', 'SearchesController.search')
+}).prefix('searches/')
