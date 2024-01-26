@@ -1,31 +1,6 @@
 'use client'
 import React from 'react'
-import { Input } from '@nextui-org/react'
-import api from '@/services/api'
-import { Button } from '@nextui-org/button'
-import { getClientSession } from '@/functions/getClientSession/getClientSession'
-import AuthModal from '@/app/components/auth/AuthModal'
-
 export default function Home() {
-  const [user, setUser] = React.useState({} as any)
-  const search = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const userT = await getClientSession()
-
-    if (!userT.isConnected) {
-      alert('Vous devez être connecté pour effectuer cette requête !')
-    } else {
-      setUser(userT)
-      const response = await api.post('/search', {
-        input: event.currentTarget.input.value,
-      })
-
-      console.log(response.data)
-    }
-
-
-  }
-
   return (
       <div className="flex justify-center items-center h-full w-full">
         <div className="text-center space-y-5">
@@ -39,17 +14,6 @@ export default function Home() {
               <path d="M451.662 71V1.18182H498.707V13.3523H466.423V29.9886H496.287V42.1591H466.423V58.8295H498.844V71H451.662Z" fill="#EA4335"/>
             </svg>
           </h1>
-          <form onSubmit={search}>
-            <div className={"flex justify-center items-center space-x-5"}>
-              <Input type="text" label="Effectuez une recherche sur Booble ..." />
-              <Button color="primary" type={"submit"} isIconOnly>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-                </svg>
-              </Button>
-            </div>
-
-          </form>
         </div>
       </div>
   )

@@ -1,12 +1,9 @@
-import { Modal, ModalContent, useDisclosure } from '@nextui-org/modal'
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/modal'
 import { Button, Card, CardBody, Link, NavbarItem, Tab, Tabs } from '@nextui-org/react'
 import React, { useState } from 'react'
-import LoginForm from './LoginForm'
-import RegisterForm from '@/app/components/auth/RegisterForm'
 
 // @ts-ignore
-export default function AuthModal({user, setUser, selectedStr, autoOpen = false}) {
-  const [selected, setSelected] = React.useState(selectedStr)
+export default function AuthModal({autoOpen = false}) {
   const {isOpen, onOpen, onOpenChange, onClose} = useDisclosure()
 
   React.useEffect(() => {
@@ -17,17 +14,10 @@ export default function AuthModal({user, setUser, selectedStr, autoOpen = false}
 
   return (
       <>
-        <NavbarItem className="hidden lg:flex">
-          <h1 onClick={() => {
-            onOpen()
-            setSelected('login')
-          }} className="text-blue-600 cursor-pointer">Connexion</h1>
-        </NavbarItem>
         <NavbarItem>
           <Button onPress={() => {
             onOpen()
-            setSelected('register')
-          }} color="primary" variant="flat">
+          }} color="primary" variant="solid" radius="full">
             Inscription
           </Button>
         </NavbarItem>
@@ -46,14 +36,21 @@ export default function AuthModal({user, setUser, selectedStr, autoOpen = false}
                           fullWidth
                           size="md"
                           aria-label="Tabs form"
-                          selectedKey={selected}
-                          onSelectionChange={setSelected}
                       >
-                        <Tab key="login" title="Connexion">
-                          <LoginForm user={user} setUser={setUser} />
-                        </Tab>
-                        <Tab key="register" title="Inscription">
-                          <RegisterForm user={user} setUser={setUser} />
+                        <Tab key="register" title="Point point point ...">
+                          <ModalHeader className="flex flex-col gap-1 items-center justify-center text-3xl">Vous êtes
+                            tombé dans le piège ...</ModalHeader>
+                          <ModalBody>
+                            <div>
+                              La bulle de filtre utilise vos donnés, comme email, prénom, nom, etc ... pour vous
+                              proposer des résultats concernant vos recherches et vous enfermer dans votre bulle !!
+                            </div>
+                          </ModalBody>
+                          <ModalFooter>
+                            <Button fullWidth color="danger" onClick={onClose}>
+                              Fermer !
+                            </Button>
+                          </ModalFooter>
                         </Tab>
                       </Tabs>
                     </CardBody>

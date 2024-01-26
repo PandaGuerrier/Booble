@@ -23,5 +23,5 @@ body,
 }
 
 body {
-
+  z-index: 10;
 }
