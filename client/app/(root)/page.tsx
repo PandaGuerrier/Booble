@@ -10,11 +10,15 @@ export default function Home() {
   return (
       <>
         <Hero />
-        <div className={"top-[-50px] animate__animated animate__fadeInUp"}>
+        <div id="def" className={"top-[-50px] animate__animated animate__fadeInUp"}>
           <Definition />
         </div>
-        <Presentation />
-        <FaqPart />
+        <div id="pres">
+          <Presentation />
+        </div>
+        <div id="faq">
+          <FaqPart />
+        </div>
         <Footer />
       </>
   )

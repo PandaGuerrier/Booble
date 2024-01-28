@@ -65,7 +65,6 @@ export default function Definition() {
                     You" paru en 2011.
                   </h1>
                 </div>
-
               </div>
             </div>
           </div>

@@ -19,15 +19,15 @@ export default function NavBar() {
   const menuItems = [
     {
       name: "Définition",
-      link: "/",
+      link: "#def",
     },
     {
       name: "Notre projet",
-      link: "/",
+      link: "#pres",
     },
     {
       name: "FAQ",
-      link: "/",
+      link: "#faq",
     },
   ]
 
@@ -39,26 +39,27 @@ export default function NavBar() {
               className="sm:hidden"
           />
           <NavbarBrand>
-            <p className="font-bold text-inherit">BOOBLE</p>
+            <a href={"#"} className="font-bold text-inherit">BOOBLE</a>
           </NavbarBrand>
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Définition
-            </Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="#" aria-current="page">
-              Notre projet
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              FAQ
-            </Link>
-          </NavbarItem>
+          {menuItems.map((item, index) => (
+              <NavbarMenuItem key={`${item}-${index}`}>
+                <Link
+                    className="w-full"
+                    href={item.link}
+                    onClick={() => {
+                      setLinkEnabled(index)
+                    }}
+                    color={
+                      index === linkEnable ? "primary" : "foreground"
+                    }
+                >
+                          {item.name}
+                </Link>
+              </NavbarMenuItem>
+          ))}
         </NavbarContent>
         <NavbarContent justify="end">
           <AuthModal />
