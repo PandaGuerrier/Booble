@@ -1,4 +1,3 @@
-import { InfoIcon } from '@nextui-org/shared-icons'
 import { motion } from 'framer-motion'
 
 // @ts-ignore

@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
+  Button,
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-  NavbarMenuToggle,
-  NavbarMenu, NavbarMenuItem, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, Dropdown
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle
 } from '@nextui-org/react'
-import api from '@/services/api'
 import AuthModal from '@/app/components/auth/AuthModal'
-// @ts-ignore
+
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const [linkEnable, setLinkEnabled] = React.useState(10)

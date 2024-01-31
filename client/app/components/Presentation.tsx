@@ -1,6 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
-import { Button, ButtonGroup, Link } from '@nextui-org/react'
+import { Link } from '@nextui-org/react'
 import { Divider } from '@nextui-org/divider'
 
 // @ts-ignore

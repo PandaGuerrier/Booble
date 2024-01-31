@@ -1,6 +1,6 @@
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/modal'
-import { Button, Card, CardBody, Link, NavbarItem, Tab, Tabs } from '@nextui-org/react'
-import React, { useState } from 'react'
+import { Button, Card, CardBody, NavbarItem, Tab, Tabs } from '@nextui-org/react'
+import React from 'react'
 
 // @ts-ignore
 export default function AuthModal({autoOpen = false}) {

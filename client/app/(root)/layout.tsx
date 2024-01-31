@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { getClientSession } from '@/functions/getClientSession/getClientSession'
 import { NextUIProvider } from '@nextui-org/react'
 import Navbar from '../components/NavBar'
 import { AnimatePresence, motion } from 'framer-motion'

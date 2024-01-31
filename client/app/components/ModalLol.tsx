@@ -1,6 +1,6 @@
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/modal'
-import { Button, Card, CardBody, Link, NavbarItem, Tab, Tabs } from '@nextui-org/react'
-import React, { useState } from 'react'
+import { Button, Card, CardBody } from '@nextui-org/react'
+import React from 'react'
 import Image from 'next/image'
 import Logo from '@/app/components/Logo'
 

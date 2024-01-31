@@ -1,6 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
-import { Button, ButtonGroup, Link } from '@nextui-org/react'
+import { Button, ButtonGroup } from '@nextui-org/react'
 import ModalEnzolol from '@/app/components/ModalEnzolol'
 
 // @ts-ignore

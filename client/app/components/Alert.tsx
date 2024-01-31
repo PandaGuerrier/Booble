@@ -1,5 +1,3 @@
-import { InfoIcon } from '@nextui-org/shared-icons'
-
 // @ts-ignore
 export default function AlertComponent({message}) {
   if (message == 'null') {
