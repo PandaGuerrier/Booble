@@ -43,7 +43,16 @@ export default function FaqPart() {
                       </li>
                     </ul>
                   </div>
-
+                </AccordionItem>
+              <AccordionItem key={0} aria-label="Les bulles de filtres sont elles dangereuses ?" title="Les bulles de filtres sont elles dangereuses ?">
+                  <div className={"space-y-12"}>
+                    Oui.
+                  </div>
+                </AccordionItem>
+                <AccordionItem key={0} aria-label="Quel est le but des entreprises à utiliser ces informations ?" title="Quel est le but des entreprises à utiliser ces informations ?">
+                  <div className={"space-y-12"}>
+                    Oui.
+                  </div>
                 </AccordionItem>
           </Accordion>
 
